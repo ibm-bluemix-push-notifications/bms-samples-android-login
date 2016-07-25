@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--android:layout_width="match_parent" android:layout_height="match_parent">-->
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true">
+
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dip"
+        android:layout_below="@+id/SubscribeHeader"
+        android:weightSum="1"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Get tags"
+            android:id="@+id/getTags" />
+
+        <EditText android:id="@+id/get_tags"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip"
+            android:singleLine="true"
+            android:layout_marginBottom="20dip"
+            android:maxLines="4"
+            android:inputType="textCapSentences|textMultiLine"
+            android:maxLength="2000"
+            android:focusable="false"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Subscribe to"
+            android:id="@+id/subscribe" />
+
+        <EditText android:id="@+id/subscribe_tags"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip"
+            android:singleLine="true"
+            android:layout_marginBottom="20dip"
+            android:maxLines="4"
+            android:inputType="textCapSentences|textMultiLine"
+            android:maxLength="2000"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Unsubscribe from"
+            android:id="@+id/unSubscribe" />
+
+        <EditText android:id="@+id/unSubscribe_tags"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:layout_marginTop="5dip"
+            android:maxLines="4"
+            android:inputType="textCapSentences|textMultiLine"
+            android:maxLength="2000"/>
+
+
+        <!-- Register Button -->
+        <Button android:id="@+id/logout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:text="Logout/UnRegister"/>
+        <!-- Link to Login Screen -->
+
+
+    </LinearLayout>
+</ScrollView>
