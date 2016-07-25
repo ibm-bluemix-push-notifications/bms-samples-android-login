@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.provider.ContactsContract;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -24,6 +25,7 @@ import java.net.MalformedURLException;
  */
 public class RegisterActivity extends Activity implements View.OnClickListener{
 
+    static final int PICK_CONTACT_REQUEST = 1;
     Button btnClickMe;
     Button autoLoad;
 
@@ -32,15 +34,6 @@ public class RegisterActivity extends Activity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register_activity);
         updateTextView("Starting Register View");
-
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        if(preferences.getBoolean("logout",false ) == true){
-            SharedPreferences.Editor editor = preferences.edit();
-            editor.putBoolean("logout", false);
-            editor.apply();
-            finish();
-        }
-
 
         final Activity activity = this;
 
@@ -122,10 +115,20 @@ public class RegisterActivity extends Activity implements View.OnClickListener{
                 ((EditText) findViewById(R.id.reg_region)).getText().clear();
 
                 Intent i = new Intent(getApplicationContext(), SubscribeActivity.class);
-                startActivity(i);
-                //finish();
+                //startActivity(i);
+
+                i.setType(ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE);
+                startActivityForResult(i,PICK_CONTACT_REQUEST);
                 break;
 
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // Check which request we're responding to
+        if (requestCode == PICK_CONTACT_REQUEST) {
+            finish();
         }
     }
 }
